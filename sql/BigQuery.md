@@ -11,6 +11,7 @@
 ```sql
 SELECT COUNT(*) AS total_transactions
 FROM transactions;
+```
 
 Insights:
 Example: The dataset contains **__** total transactions._
@@ -20,6 +21,7 @@ Example: The dataset contains **__** total transactions._
 SELECT COUNT(*) AS total_fraud
 FROM transactions
 WHERE isFraud = 1;
+```
 
 Insights:
 Example: There are **__** fraudulent transactions._
