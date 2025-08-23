@@ -189,8 +189,7 @@ GROUP BY step
 ORDER BY step;
 ```
 
-Insights:
-(Are frauds evenly distributed over time or clustered?)
+Insights: The distribution of fraudulent transactions over time appears fairly scattered, without a single dominant time step. Most steps have a small number of frauds, typically under 20 per step, with occasional spikes reaching higher counts. This suggests that fraud attempts are sporadic rather than concentrated in a particular period, indicating that fraudsters are not restricted to specific times and may attempt attacks throughout the dataset's timeline.
 ![Fraud Count by Step - Chart](images/fraud_count_by_step.png)
 
 ### 5.2 Total Transactions Over Time
@@ -203,3 +202,4 @@ ORDER BY step;
 
 Insights:
 (Compare total activity vs. fraud activity over time)
+![Transaction Count by Step - Chart](images/total_txn_by_step.png)
