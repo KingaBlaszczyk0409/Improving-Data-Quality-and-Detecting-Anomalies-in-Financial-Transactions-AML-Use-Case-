@@ -71,10 +71,10 @@ This project explores how to:
 ---
 
 ## Repository Structure  
+- dashboards/ # Tableau files or screenshots
 - data/ # sample / cleaned datasets
 - notebooks/ # R Markdown (exploration + modeling)
 - sql/ # SQL scripts for data validation & cleaning
-- dashboards/ # Tableau files or screenshots
 - README.md # project overview
 
 ## Author  
