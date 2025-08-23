@@ -71,11 +71,20 @@ This project explores how to:
 ---
 
 ## Repository Structure  
-- dashboards/ # Tableau files or screenshots
-- data/ # sample / cleaned datasets
-- notebooks/ # R Markdown (exploration + modeling)
-- sql/ # SQL scripts for data validation & cleaning
-- README.md # project overview
+project-name/
+│
+├── dashboards/        # Tableau files (.twb/.twbx) or screenshots of dashboards
+│
+├── data/              # Raw, sample, or cleaned datasets (CSV, Excel, Parquet, etc.)
+│
+├── notebooks/         # Jupyter or R Markdown notebooks for exploration & modeling
+│
+├── sql/               # SQL scripts for data validation, cleaning, or transformations
+│
+├── README.md          # Project overview, instructions, and documentation
+│
+└── requirements.txt   # (Optional) Python/R package dependencies
+
 
 ## Author  
 **Kinga Sligar**  
