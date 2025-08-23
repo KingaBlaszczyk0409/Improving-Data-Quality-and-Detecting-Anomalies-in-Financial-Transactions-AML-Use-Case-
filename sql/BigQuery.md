@@ -200,6 +200,5 @@ GROUP BY step
 ORDER BY step;
 ```
 
-Insights:
-(Compare total activity vs. fraud activity over time)
+Insights: The overall transaction volume shows a noticeable daily rhythm, with activity peaking during typical working hours and tapering off into the night. This distribution aligns with expected user behavior, where financial activity is more common during business hours and significantly reduced overnight.
 ![Transaction Count by Step - Chart](images/total_txn_by_step.png)
