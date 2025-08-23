@@ -1,0 +1,2 @@
+# Improving-Data-Quality-and-Detecting-Anomalies-in-Financial-Transactions-AML-Use-Case-
+As an Information Management Analyst at USAA, I am tasked with ensuring data quality, detecting anomalies in financial transactions, and maintaining metadata for compliance with AML regulations. This case study explores how to assess and improve data quality, while identifying potential fraud or suspicious activity.
