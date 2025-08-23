@@ -14,7 +14,7 @@ FROM transactions;
 ```
 
 Insights:
-Example: The dataset contains **__** total transactions._
+Example: The dataset contains 6362620 total transactions._
 
 ### 1.2 Total Fraudulent Transactions
 ```sql
