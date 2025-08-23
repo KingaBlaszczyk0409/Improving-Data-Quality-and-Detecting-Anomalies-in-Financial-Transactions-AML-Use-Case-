@@ -41,7 +41,7 @@ This project explores how to:
 - Evaluated precision, recall, and F1-score.  
 
 ### 4. Visualization & Reporting  
-- Built **Power BI/Tableau dashboards**:  
+- Built **Tableau dashboards**:  
   - Data Quality Scorecard (missing %, duplicates, invalid entries).  
   - Anomaly Detection Results (suspicious transactions by type & time).  
   - Fraud Trends Overview.  
@@ -56,9 +56,9 @@ This project explores how to:
 ---
 
 ## Tech Stack  
-- **SQL Server / PostgreSQL** (queries, ETL, metadata)  
+- **BigQuery** (queries, ETL, metadata)  
 - **Python (Pandas, Scikit-learn, Plotly, Dash)**  
-- **Power BI / Tableau** (visualization)  
+- **Tableau** (visualization)  
 - **GitHub** (documentation & version control)  
 
 ---
@@ -72,9 +72,9 @@ This project explores how to:
 
 ## Repository Structure  
 - data/ # sample / cleaned datasets
-- notebooks/ # Jupyter notebooks (exploration + modeling)
+- notebooks/ # R Markdown (exploration + modeling)
 - sql/ # SQL scripts for data validation & cleaning
-- dashboards/ # Power BI / Tableau files or screenshots
+- dashboards/ # Tableau files or screenshots
 - README.md # project overview
 
 ## Author  
