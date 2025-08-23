@@ -1,6 +1,6 @@
-# 🏦 Improving Data Quality and Detecting Anomalies in Financial Transactions (AML Use Case)
+# Improving Data Quality and Detecting Anomalies in Financial Transactions (AML Use Case)
 
-## 📌 Project Overview  
+## Project Overview  
 This case study simulates the responsibilities of an **Information Management Analyst** working in the financial sector.  
 The focus is on **data quality assessment, metadata management, and anomaly detection** in transaction data to support **AML (Anti-Money Laundering) compliance**.  
 
@@ -10,7 +10,7 @@ The focus is on **data quality assessment, metadata management, and anomaly dete
 
 ---
 
-## 🎯 Business Problem  
+## Business Problem  
 Financial institutions must ensure **data quality, transparency, and fraud detection** to comply with AML regulations.  
 Poor-quality data increases compliance risks and reduces fraud monitoring effectiveness.  
 
@@ -21,7 +21,7 @@ This project explores how to:
 
 ---
 
-## ⚙️ Approach  
+## Approach  
 
 ### 1. Data Quality Assessment & Metadata Management  
 - Checked for missing, duplicate, and inconsistent values.  
@@ -48,14 +48,14 @@ This project explores how to:
 
 ---
 
-## 📊 Results (to be filled in)  
+## Results (to be filled in)  
 - ✅ Improved data quality from **X% → Y% valid records**.  
 - ✅ Anomaly detection achieved **XX% recall and XX% precision**.  
 - ✅ Dashboards provided actionable insights for **compliance monitoring**.  
 
 ---
 
-## 🛠️ Tech Stack  
+## Tech Stack  
 - **SQL Server / PostgreSQL** (queries, ETL, metadata)  
 - **Python (Pandas, Scikit-learn, Plotly, Dash)**  
 - **Power BI / Tableau** (visualization)  
@@ -63,22 +63,22 @@ This project explores how to:
 
 ---
 
-## 🚀 Next Steps  
+## Next Steps  
 - Expand anomaly detection with **deep learning models** (e.g., LSTMs).  
 - Add **automated data quality pipelines** with validation alerts.  
 - Integrate with **real-time dashboards** for monitoring.  
 
 ---
 
-## 📂 Repository Structure  
+## Repository Structure  
 - data/ # sample / cleaned datasets
 - notebooks/ # Jupyter notebooks (exploration + modeling)
 - sql/ # SQL scripts for data validation & cleaning
 - dashboards/ # Power BI / Tableau files or screenshots
 - README.md # project overview
 
-## 👩‍💻 Author  
+## Author  
 **Kinga Sligar**  
 - LinkedIn: [[Linkedin link](https://www.linkedin.com/in/kinga-sligar-1355441a3/?locale=en_US)]  
 - Portfolio: [[GitHub link](https://github.com/KingaBlaszczyk0409)]  
-- 📧 [kblaszczyk0409@gmail.com]  
+- Email: [kblaszczyk0409@gmail.com]  
