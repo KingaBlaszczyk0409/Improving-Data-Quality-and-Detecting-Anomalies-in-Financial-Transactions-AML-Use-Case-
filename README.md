@@ -79,6 +79,6 @@ This project explores how to:
 
 ## 👩‍💻 Author  
 **Kinga Sligar**  
-- LinkedIn: [[your LinkedIn link here](https://www.linkedin.com/in/kinga-sligar-1355441a3/?locale=en_US)]  
+- LinkedIn: [[Linkedin](https://www.linkedin.com/in/kinga-sligar-1355441a3/?locale=en_US)]  
 - Portfolio: [GitHub/website link]  
 - 📧 [your email]  
