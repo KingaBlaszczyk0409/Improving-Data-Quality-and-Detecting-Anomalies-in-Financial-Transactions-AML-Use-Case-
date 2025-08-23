@@ -13,8 +13,7 @@ SELECT COUNT(*) AS total_transactions
 FROM transactions;
 ```
 
-Insights:
-Example: The dataset contains 6362620 total transactions._
+Insights: The dataset contains 6362620 total transactions.
 
 ### 1.2 Total Fraudulent Transactions
 ```sql
@@ -23,8 +22,7 @@ FROM transactions
 WHERE isFraud = 1;
 ```
 
-Insights:
-Example: There are **__** fraudulent transactions._
+Insights: There are 8213 fraudulent transactions.
 
 ### 1.3 Transactions per Type
 ```sql
@@ -34,8 +32,7 @@ GROUP BY type
 ORDER BY total DESC;
 ```
 
-Insights:
-(Which transaction types are most common?)
+Insights: The most common transaction is "CASH_OUT" (2237500 records) followed by "PAYMENT" (2151495), "CASH_IN" (1399284), "TRANSFER" (532909) and "DEBIT" (41432).
 
 ### 1.4 Fraudulent Transactions per Type
 ```sql
