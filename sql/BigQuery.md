@@ -191,8 +191,7 @@ ORDER BY step;
 
 Insights:
 (Are frauds evenly distributed over time or clustered?)
-![Fraud Analysis Chart]()
-![Fraud Analysis Chart](images/fraud_chart.png)
+![Fraud Count by Step - Chart](images/fraud_count by step.png)
 
 
 ### 5.2 Total Transactions Over Time
