@@ -79,6 +79,6 @@ This project explores how to:
 
 ## Author  
 **Kinga Sligar**  
-- LinkedIn: [[Linkedin link](https://www.linkedin.com/in/kinga-sligar-1355441a3/?locale=en_US)]  
-- Portfolio: [[GitHub link](https://github.com/KingaBlaszczyk0409)]  
-- Email: [kblaszczyk0409@gmail.com]  
+- LinkedIn: [Linkedin link](https://www.linkedin.com/in/kinga-sligar-1355441a3/?locale=en_US)  
+- Portfolio: [GitHub link](https://github.com/KingaBlaszczyk0409)  
+- Email: kblaszczyk0409@gmail.com 
