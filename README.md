@@ -71,13 +71,23 @@ This project explores how to:
 ---
 
 ## Repository Structure  
-project-name/
-├── dashboards/ # Tableau files (.twb/.twbx) or screenshots of dashboards
-├── data/ # Raw, sample, or cleaned datasets (CSV, Excel, Parquet, etc.)
-├── notebooks/ # Jupyter or R Markdown notebooks for exploration & modeling
-├── sql/ # SQL scripts for data validation, cleaning, or transformations
-├── README.md # Project overview, instructions, and documentation
-└── requirements.txt # (Optional) Python/R package dependencies
+├── src
+│   ├── controller
+│   │   ├── **/*.css
+│   ├── views
+│   ├── model
+│   ├── index.js
+├── public
+│   ├── css
+│   │   ├── **/*.css
+│   ├── images
+│   ├── js
+│   ├── index.html
+├── dist (or build
+├── node_modules
+├── package.json
+├── package-lock.json
+└── .gitignore
 
 
 ## Author  
