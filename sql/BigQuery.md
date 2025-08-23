@@ -43,8 +43,7 @@ GROUP BY type
 ORDER BY total_fraud DESC;
 ```
 
-Insights:
-(Which types are most fraud-prone?)
+Insights: The number of fraudulent CASH_OUT (4,116) and TRANSFER (4,097) transactions is very similar. This likely reflects the typical fraud pattern in the dataset, where funds are first transferred to a fraudulent account (TRANSFER) and then quickly cashed out (CASH_OUT), resulting in nearly equal counts for both steps of the scheme.
 
 ## 2. Descriptive Statistics
 ### 2.1 Amount Statistics (All Transactions)
@@ -57,8 +56,7 @@ SELECT
 FROM transactions;
 ```
 
-Insights:
-(Min, max, avg, and total amounts for all transactions)
+Insights: The transaction amounts range from a minimum of 0.0 to a maximum of 92,445,516.64 with an average of 179,861.90 per transaction. The total value of all transactions is 1,144,392,944,759.76.
 
 ### 2.2 Amount Statistics (Fraudulent Transactions)
 ```sql
@@ -69,10 +67,15 @@ SELECT
     SUM(amount) AS total_amount
 FROM transactions
 WHERE isFraud = 1;
+
+SELECT
+    SUM(amount) AS total_amount,
+    SUM(CASE WHEN isFraud = 1 THEN amount ELSE 0 END) AS total_fraud_amount,
+    ROUND(100.0 * SUM(CASE WHEN isFraud = 1 THEN amount ELSE 0 END) / SUM(amount), 4) AS fraud_amount_percentage
+FROM transactions;
 ```
 
-Insights:
-(Compare amounts in fraud vs. normal transactions)
+Insights: Fraudulent transactions have amounts ranging from 0.0 to 10,000,000.0, with an average value of 1,467,967.29 per transaction. The total value of all fraudulent transactions is 12,056,415,427.84, representing approximately 1.05% of the total transaction volume.
 
 ### 2.3 Fraud Rate by Transaction Type
 ```sql
