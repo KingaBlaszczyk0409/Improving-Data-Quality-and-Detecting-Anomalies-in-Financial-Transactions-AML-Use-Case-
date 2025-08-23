@@ -96,10 +96,12 @@ Insights: The TRANSFER category exhibits the highest fraud rate at 0.77%, follow
 ```sql
 SELECT COUNT(*) AS zero_orig_balance
 FROM transactions
-WHERE oldBalanceOrg = 0 AND amount > 0;
+WHERE oldBalanceOrg = 0 
+  AND amount > 0
+  AND type NOT IN ('CASH_IN');
 ```
 
-Insights: There are 2,102,433 origin accounts with balances starting at zero, which may indicate a potential data anomaly.
+Insights: There are over 2 million transactions (mainly CASH_OUT and TRANSFER) where the origin account shows a zero balance both before and after the transaction, while the destination still receives funds. This inconsistency is due to how the PaySim simulator generates synthetic data — it does not always enforce strict accounting logic. These records may not represent real-world transactions but are useful for training fraud detection models where anomalies are expected.
 
 ### 3.2 Transactions with Zero Destination Balance but Non-Zero Amount
 ```sql
@@ -108,18 +110,22 @@ FROM transactions
 WHERE oldBalanceDest = 0 AND amount > 0;
 ```
 
-Insights:
-(Potential data anomaly: destination accounts receiving money with zero balance?)
+Insights: Over 2.7 million transactions involve money being sent to destination accounts with an initial balance of zero. While this is normal for new or dormant accounts, it is also a common behavior in fraudulent transfers to mule accounts. These transactions should be retained and profiled further, as they may provide valuable fraud-detection signals.
 
 ### 3.3 Fraudulent Transactions with Zero Destination Balance
 ```sql
 SELECT COUNT(*) AS fraud_zero_dest
 FROM transactions
 WHERE isFraud = 1 AND oldBalanceDest = 0 AND newBalanceDest = 0;
+
+SELECT COUNT(*) AS fraud_zero_dest,
+type
+FROM transactions
+WHERE isFraud = 1 AND oldBalanceDest = 0 AND newBalanceDest = 0
+GROUP BY type;
 ```
 
-Insights:
-(Does fraud happen when destination accounts start at zero?)
+Insights: Out of 4,076 fraudulent transactions, nearly all (4,068, or ~99.8%) were TRANSFERs into destination accounts with a zero starting balance, while only 8 transactions (~0.2%) were CASH_OUTs under the same condition. This pattern strongly suggests that fraudsters frequently use new or dormant mule accounts as the initial destination for illicit funds before moving or withdrawing them. As a result, transactions where the destination balance is zero, especially in the TRANSFER category, represent a high-risk fraud indicator and could be a key feature for fraud detection models.
 
 ## 4. Account-Level Analysis
 ### 4.1 Total Transactions per Origin Account
@@ -131,8 +137,7 @@ ORDER BY total_txn DESC
 LIMIT 10;
 ```
 
-Insights:
-(Top origin accounts by number of transactions and total amount)
+Insights: The accounts with the highest number of transactions each only executed a few operations, but often with substantial total amounts. This suggests that transaction frequency alone is not a strong indicator of risk, while the monetary value of transactions may be more relevant for detecting anomalies or fraud. Accounts with relatively few but high-value transactions could be more suspicious than those with many smaller ones.
 
 ### 4.2 Total Fraudulent Transactions per Origin Account
 ```sql
@@ -142,10 +147,25 @@ WHERE isFraud = 1
 GROUP BY nameOrig
 ORDER BY total_fraud DESC
 LIMIT 10;
+
+SELECT
+  COUNT(*) AS fraud_txn_count,
+  AVG(amount) AS avg_amount_fraud_incl_zero,
+  APPROX_QUANTILES(amount, 1001)[OFFSET(500)] AS median_amount_fraud_incl_zero,
+
+  -- Excluding zero amounts (useful given many fraud rows have amount = 0)
+  AVG(IF(amount > 0, amount, NULL)) AS avg_amount_fraud_excl_zero,
+  APPROX_QUANTILES(IF(amount > 0, amount, NULL), 1001)[OFFSET(500)] AS median_amount_fraud_excl_zero,
+
+  -- Context on zeros
+  SUM(CASE WHEN amount = 0 THEN 1 ELSE 0 END) AS zero_amount_fraud_count,
+  ROUND(100.0 * SUM(CASE WHEN amount = 0 THEN 1 ELSE 0 END) / COUNT(*), 4) AS zero_amount_fraud_pct
+FROM transactions
+WHERE isFraud = 1;
 ```
 
-Insights:
-(Which origin accounts have the most fraudulent transactions?)
+Insights: Each fraudulent account in the dataset initiates only one fraudulent transaction, and the transaction amounts vary significantly—from 0 to very high values. The average amount is ~$1.47M and the median is ~$441K, with only 16 transactions having an amount of zero. This suggests that fraud typically occurs as a single, high-value attempt rather than repeated small transactions. 
+Additionally, origin accounts with only a single transaction may be particularly relevant for detecting anomalies or fraud, as these accounts could represent one-off attempts to bypass normal transaction patterns.
 
 ### 4.3 Accounts Involved in Both TRANSFER and CASH_OUT Fraud
 ```sql
@@ -157,8 +177,7 @@ WHERE t1.type = 'TRANSFER' AND t1.isFraud = 1
   AND t2.type = 'CASH_OUT' AND t2.isFraud = 1;
 ```
 
-Insights:
-(Accounts potentially involved in multi-step fraud schemes)
+Insights: No destination accounts appear as both the recipient of a fraudulent TRANSFER and the origin of a fraudulent CASH_OUT. This suggests that fraudulent funds are not being immediately routed through another account in the dataset, implying that fraudsters may be cashing out directly or using separate accounts for different fraudulent activities.
 
 ## 5. Time-Based Analysis
 ### 5.1 Fraudulent Transactions Over Time
@@ -172,6 +191,8 @@ ORDER BY step;
 
 Insights:
 (Are frauds evenly distributed over time or clustered?)
+![Uploading image.png…]()
+
 
 ### 5.2 Total Transactions Over Time
 ```sql
