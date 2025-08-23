@@ -71,14 +71,14 @@ This project explores how to:
 ---
 
 ## 📂 Repository Structure  
-├── data/ # sample / cleaned datasets
-├── notebooks/ # Jupyter notebooks (exploration + modeling)
-├── sql/ # SQL scripts for data validation & cleaning
-├── dashboards/ # Power BI / Tableau files or screenshots
-├── README.md # project overview
+- data/ # sample / cleaned datasets
+- notebooks/ # Jupyter notebooks (exploration + modeling)
+- sql/ # SQL scripts for data validation & cleaning
+- dashboards/ # Power BI / Tableau files or screenshots
+- README.md # project overview
 
 ## 👩‍💻 Author  
 **Kinga Sligar**  
-- LinkedIn: [[Linkedin](https://www.linkedin.com/in/kinga-sligar-1355441a3/?locale=en_US)]  
-- Portfolio: [GitHub/website link]  
-- 📧 [your email]  
+- LinkedIn: [[Linkedin link](https://www.linkedin.com/in/kinga-sligar-1355441a3/?locale=en_US)]  
+- Portfolio: [[GitHub link](https://github.com/KingaBlaszczyk0409)]  
+- 📧 [kblaszczyk0409@gmail.com]  
