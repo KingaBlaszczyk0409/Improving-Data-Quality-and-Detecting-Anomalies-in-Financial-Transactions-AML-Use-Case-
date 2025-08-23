@@ -89,19 +89,17 @@ GROUP BY type
 ORDER BY fraud_percentage DESC;
 ```
 
-Insights:
-(Which types have the highest fraud rate?)
+Insights: The TRANSFER category exhibits the highest fraud rate at 0.77%, followed by CASH_OUT at 0.18%, while all other transaction types show a 0% fraud rate.
 
 ## 3. Balance Checks / Data Quality
 ### 3.1 Transactions with Zero Origin Balance but Non-Zero Amount
 ```sql
 SELECT COUNT(*) AS zero_orig_balance
 FROM transactions
-WHERE oldBalanceOrig = 0 AND amount > 0;
+WHERE oldBalanceOrg = 0 AND amount > 0;
 ```
 
-Insights:
-(Potential data anomaly: origin accounts starting with zero?)
+Insights: There are 2,102,433 origin accounts with balances starting at zero, which may indicate a potential data anomaly.
 
 ### 3.2 Transactions with Zero Destination Balance but Non-Zero Amount
 ```sql
