@@ -72,19 +72,20 @@ This project explores how to:
 
 ## Repository Structure  
 ```
-project-name/
+Improving-Data-Quality-and-Detecting-Anomalies-in-Financial-Transactions-AML-Use-Case-/
 │
 ├── dashboards/        # Tableau files (.twb/.twbx) or screenshots of dashboards
 │
 ├── data/              # Raw, sample, or cleaned datasets (CSV, Excel, Parquet, etc.)
+│   ├── cleaning/           # Queries for cleaning raw data
 │
-├── notebooks/         # Jupyter or R Markdown notebooks for exploration & modeling
+├── python/         # Jupyter or R Markdown notebooks for exploration & modeling
+│   ├── cleaning/           # Queries for cleaning raw data
 │
-├── sql/               # SQL scripts for data validation, cleaning, or transformations
+├── sql/                    # SQL scripts for data validation, cleaning, or transformations
+│   ├── cleaning/           # Queries for cleaning raw data
 │
-├── README.md          # Project overview, instructions, and documentation
-│
-└── requirements.txt   # (Optional) Python/R package dependencies
+└── README.md          # Project overview, instructions, and documentation
 ```
 
 
