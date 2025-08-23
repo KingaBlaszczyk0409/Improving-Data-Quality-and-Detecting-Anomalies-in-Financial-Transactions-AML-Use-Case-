@@ -74,18 +74,21 @@ This project explores how to:
 ```
 Improving-Data-Quality-and-Detecting-Anomalies-in-Financial-Transactions-AML-Use-Case-/
 │
-├── dashboards/        # Tableau files (.twb/.twbx) or screenshots of dashboards
+├── dashboards/                # Tableau dashboards (screenshots)
 │
-├── data/              # Raw, sample, or cleaned datasets (CSV, Excel, Parquet, etc.)
-│   ├── cleaning/           # Queries for cleaning raw data
+├── data/                      # Sample dataset
+│   └── PaySim_dataset_1_1.csv # Synthetic dataset used for AML fraud detection analysis
 │
-├── python/         # Jupyter or R Markdown notebooks for exploration & modeling
-│   ├── cleaning/           # Queries for cleaning raw data
+├── python/                    # Python notebooks
+│   └── analysis.md             # Notes and explanations of Python-based analysis
 │
-├── sql/                    # SQL scripts for data validation, cleaning, or transformations
-│   ├── cleaning/           # Queries for cleaning raw data
+├── sql/                       # SQL scripts and related resources
+│   ├── BigQuery.md             # SQL queries for data validation and analysis
+│   └── images/                 # Visualization outputs from SQL queries
+│       ├── fraud_count_by_step.png   # Chart: Fraudulent transactions over time
+│       └── total_txn_by_step.png     # Chart: Total transactions over time
 │
-└── README.md          # Project overview, instructions, and documentation
+└── README.md                  # Project overview, objectives, and usage instructions        
 ```
 
 
