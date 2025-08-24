@@ -6,10 +6,10 @@ This document presents an exploratory data analysis (EDA) and preliminary modeli
 
 ## 2. Dataset Overview
 
-  Dataset shape: (6,362,620, 11)
-  Total transactions: 6,362,620
-  Total fraud transactions: 8,213
-  Fraud ratio: 0.00129 (~0.129%)
+* Dataset shape: (6,362,620, 11)
+* Total transactions: 6,362,620
+* Total fraud transactions: 8,213
+* Fraud ratio: 0.00129 (~0.129%)
 
 Transaction type counts:
 
