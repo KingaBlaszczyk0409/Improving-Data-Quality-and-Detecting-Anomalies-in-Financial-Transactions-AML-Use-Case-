@@ -1,8 +1,8 @@
 # Improving Data Quality and Detecting Anomalies in Financial Transactions (AML Use Case)
 
 ## Project Overview  
-This case study simulates the responsibilities of an **Information Management Analyst** working in the financial sector.  
-The focus is on **data quality assessment, metadata management, and anomaly detection** in transaction data to support **AML (Anti-Money Laundering) compliance**.  
+This case study simulates the responsibilities of an **Information Management Analyst** in the financial sector, focusing on data quality, feature engineering, and fraud detection.
+The analysis uses the PaySim synthetic dataset to illustrate anomaly detection in financial transactions, supporting AML (Anti-Money Laundering) compliance.
 
 **Dataset**: [PaySim Synthetic Financial Dataset](https://www.kaggle.com/datasets/ealaxi/paysim1)  
 - ~6M financial transactions  
@@ -11,62 +11,84 @@ The focus is on **data quality assessment, metadata management, and anomaly dete
 ---
 
 ## Business Problem  
-Financial institutions must ensure **data quality, transparency, and fraud detection** to comply with AML regulations.  
-Poor-quality data increases compliance risks and reduces fraud monitoring effectiveness.  
+Financial institutions need to maintain high-quality transaction data for effective fraud monitoring and AML compliance.
+Poor-quality data or undetected anomalies can increase regulatory risks and reduce the effectiveness of fraud detection systems.
 
 This project explores how to:  
-- Assess and improve **data quality** (cleaning, validation, metadata management).  
-- Detect **anomalous transactions** using SQL and Python.  
-- Visualize fraud detection trends for better **compliance monitoring**.  
+- Assess and improve data quality (cleaning, validation, metadata management).
+- Detect anomalous transactions using SQL and Python.
+- Visualize fraud detection trends for better compliance monitoring.
 
 ---
 
 ## Approach  
 
-### 1. Data Quality Assessment & Metadata Management  
-- Checked for missing, duplicate, and inconsistent values.  
-- Created **metadata summary tables** for transaction types, amounts, and IDs.  
-- Applied rule-based validation (e.g., negative balances, invalid transaction flows).  
+### 1. Data Quality Assessment & Metadata Management
+- Checked for missing, duplicate, and inconsistent values.
+- Created metadata summary tables for transaction types, amounts, and customer IDs.
+- Applied rule-based validation using SQL and Python:
+  - Negative balances
+  - Invalid transaction flows
+  - Zero-balance origin/destination with positive amounts
 
-### 2. Data Cleaning & Standardization  
-- Standardized transaction metadata (consistent formats, retention rules).  
-- Applied SQL scripts for deduplication and anomaly flagging.  
-- Logged all corrections for **audit transparency**.  
+### 2. SQL-Based Anomaly Detection
+- Used SQL queries to identify suspicious transactions:
+  - Transactions exceeding typical amount thresholds
+  - Rapid transfers between accounts
+  - Imbalances between origin and destination accounts
+- Generated fraud-related statistics and aggregates:
+  - Fraud counts by transaction type
+  - Fractions of transactions with balance inconsistencies
+  - Features like isZeroOrig and isZeroDest for anomaly flags
+- These SQL-based rules informed feature engineering for Python models-Used SQL queries to identify suspicious transactions:
 
-### 3. Anomaly Detection (AML Use Case)  
-- **SQL Queries** → Flagged abnormal transaction patterns (e.g., unusually high amounts, rapid transfers).  
-- **Python ML Models**:  
-  - Isolation Forest  
-  - Random Forest Classifier (baseline fraud detection)  
-- Evaluated precision, recall, and F1-score.  
+### 3. Python Analysis & Machine Learning 
+- **Exploratory Data Analysis (EDA):**
+  - Visualized transaction distributions, fraud ratios, and type breakdowns
+  - Assessed balance errors (errorBalanceOrig / errorBalanceDest) and inconsistencies
+- **Feature Engineering:**
+  - Binary flags (isTransfer, isZeroOrig, isZeroDest)
+  - Error balances to capture anomalies in transaction flows
+- **Modeling:**
+  - Random Forest Classifier as baseline fraud detection
+  - Evaluated feature importance: error balances and origin balance were the most predictive
+  - Calculated correlation matrix with fraud target
+- **Results from Python Analysis:**
+  - Fraud ratio: ~0.129%
+  - Most fraudulent transactions: TRANSFER (~0.77% fraud)
+  - Feature importance highlights:
+    - errorBalanceOrig (0.45)
+    - oldBalanceOrig (0.18)
+    - newBalanceOrig (0.12)
 
 ### 4. Visualization & Reporting  
-- Built **Tableau dashboards**:  
-  - Data Quality Scorecard (missing %, duplicates, invalid entries).  
-  - Anomaly Detection Results (suspicious transactions by type & time).  
-  - Fraud Trends Overview.  
+- Plotted fraud rate by transaction type and transaction amount distributions
+- Correlation heatmaps to identify predictive features
+- Optionally, Python outputs can feed into dashboards for fraud monitoring
 
 ---
 
-## Results (to be filled in)  
-- ✅ Improved data quality from **X% → Y% valid records**.  
-- ✅ Anomaly detection achieved **XX% recall and XX% precision**.  
-- ✅ Dashboards provided actionable insights for **compliance monitoring**.  
+## Results
+- ✅ Detected fraud patterns with SQL and Python analysis
+- ✅ Identified key predictive features for machine learning models
+- ✅ Highlighted data quality issues and balance inconsistencies that contribute to anomalous transactions
+- ✅ Produced visual insights for AML compliance monitoring 
 
 ---
 
 ## Tech Stack  
-- **BigQuery** (queries, ETL, metadata)  
-- **Python (Pandas, Scikit-learn, Plotly, Dash)**  
-- **Tableau** (visualization)  
-- **GitHub** (documentation & version control)  
+- **SQL / BigQuery** → Rule-based anomaly detection, metadata aggregation
+- **Python (Pandas, Scikit-learn, Matplotlib, Seaborn)** → EDA, feature engineering, modeling
+- **Parquet / CSV** → Efficient storage of EDA sample
+- **Tableau / Plotly / Dash (optional)** → Dashboard visualization
+- **GitHub** → Documentation & version control
 
 ---
 
 ## Next Steps  
-- Expand anomaly detection with **deep learning models** (e.g., LSTMs).  
-- Add **automated data quality pipelines** with validation alerts.  
-- Integrate with **real-time dashboards** for monitoring.  
+- Expand anomaly detection with deep learning models (e.g., LSTM for sequential transaction analysis)
+- Add automated data quality pipelines with validation alerts
+- Integrate results into real-time dashboards for proactive monitoring
 
 ---
 
@@ -81,6 +103,9 @@ Improving-Data-Quality-and-Detecting-Anomalies-in-Financial-Transactions-AML-Use
 │
 ├── python/                    # Python notebooks
 │   └── analysis.md             # Notes and explanations of Python-based analysis
+│   └── images/                 # Visualization outputs from SQL queries
+│       ├── Fraud_Rate_by_Transaction_Type.png                   # Chart: Fraudulent rate by type
+│       └── Fraud_Rate_by_Transaction_Type_Log-Log_Scale.png     # Chart: Fraudulent rate by type (Log-Log Scale)
 │
 ├── sql/                       # SQL scripts and related resources
 │   ├── BigQuery.md             # SQL queries for data validation and analysis
