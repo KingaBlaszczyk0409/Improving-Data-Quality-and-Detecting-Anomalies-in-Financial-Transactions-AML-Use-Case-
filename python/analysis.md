@@ -33,7 +33,7 @@ Fraud by transaction type:
 | DEBIT | 0.00 |
 | PAYMENT | 0.00 |
 
-* Insight: Fraud predominantly occurs in TRANSFER and CASH_OUT transactions.
+* **Insight:** Fraud predominantly occurs in TRANSFER and CASH_OUT transactions.
 * Balance inconsistencies:
     * Fraction of transactions with orig balance inconsistency: 0.819
     * Fraction with dest balance inconsistency: 0.744
