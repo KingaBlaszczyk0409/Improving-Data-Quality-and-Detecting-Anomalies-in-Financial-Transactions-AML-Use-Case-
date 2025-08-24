@@ -99,7 +99,8 @@ Improving-Data-Quality-and-Detecting-Anomalies-in-Financial-Transactions-AML-Use
 ├── dashboards/                # Tableau dashboards (screenshots)
 │
 ├── data/                      # Sample dataset
-│   └── PaySim_dataset_1_1.csv # Synthetic dataset used for AML fraud detection analysis
+│   ├── PaySim_dataset.csv     # Original synthetic dataset used for AML fraud detection analysis
+│   └── PaySim_dataset_1_1.csv # Sample of synthetic dataset used for AML fraud detection analysis
 │
 ├── python/                    # Python notebooks
 │   └── analysis.md             # Notes and explanations of Python-based analysis
