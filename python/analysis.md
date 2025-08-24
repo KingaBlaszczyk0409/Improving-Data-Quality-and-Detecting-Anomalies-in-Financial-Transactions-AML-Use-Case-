@@ -129,6 +129,7 @@ plt.title("Fraud Rate by Transaction Type")
 plt.ylabel("Fraud Rate")
 plt.show()
 ```
+![Fraud Rate by Transaction Type - Chart](images/Fraud_Rate_by_Transaction_Type.png)
 
 Transaction Amount Distribution (Log-Log Scale)
 ```
@@ -139,6 +140,7 @@ plt.xlabel("Amount")
 plt.ylabel("Count")
 plt.show()
 ```
+![Transaction Amount Distribution (Log-Log Scale)](images/Fraud_Rate_by_Transaction_Type_Log-Log_Scale.png)
 
 ## 8. Key Insights
 
