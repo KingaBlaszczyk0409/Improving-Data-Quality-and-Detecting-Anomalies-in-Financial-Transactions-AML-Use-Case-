@@ -13,22 +13,22 @@ This document presents an exploratory data analysis (EDA) and preliminary modeli
 
 Transaction type counts:
 
-  TRANSFER     2,053,624
-  CASH_OUT     1,890,147
-  CASH_IN      1,947,495
-  DEBIT          470,530
-  PAYMENT       500,824
+* TRANSFER     2,053,624
+* CASH_OUT     1,890,147
+* CASH_IN      1,947,495
+* DEBIT          470,530
+* PAYMENT       500,824
 
 ## 3. Initial Observations
 
 Fraud by transaction type:
 
   type	Fraud rate (%)
-  TRANSFER	0.77
-  CASH_OUT	0.18
-  CASH_IN	0.00
-  DEBIT	0.00
-  PAYMENT	0.00
+* TRANSFER	0.77
+* CASH_OUT	0.18
+* CASH_IN	0.00
+* DEBIT	0.00
+* PAYMENT	0.00
 
 Insight: Fraud predominantly occurs in TRANSFER and CASH_OUT transactions.
 
