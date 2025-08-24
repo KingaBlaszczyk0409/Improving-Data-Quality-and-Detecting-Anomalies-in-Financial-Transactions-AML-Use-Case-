@@ -68,7 +68,7 @@ features = [
 ## 5. Correlation Analysis
 
 Correlation with fraud:
-
+```
 isFraud             1.00
 oldBalanceOrig      0.35
 isZeroDest          0.08
@@ -80,7 +80,7 @@ newBalanceDest     -0.01
 oldBalanceDest     -0.01
 errorBalanceOrig   -0.02
 isZeroOrig         -0.05
-
+```
 
 Insight:
 
