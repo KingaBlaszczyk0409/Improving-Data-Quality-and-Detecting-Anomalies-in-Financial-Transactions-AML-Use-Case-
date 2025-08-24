@@ -30,6 +30,14 @@ Fraud by transaction type:
 * DEBIT	0.00
 * PAYMENT	0.00
 
+| type | Fraud rate (%) |
+| :---:   | :---: |
+| TRANSFER | 0.77   |
+| CASH_OUT | 0.18   |
+| CASH_IN | 0.00   |
+| DEBIT | 0.00   |
+| PAYMENT | 0.00   |
+
 Insight: Fraud predominantly occurs in TRANSFER and CASH_OUT transactions.
 
 Balance inconsistencies:
