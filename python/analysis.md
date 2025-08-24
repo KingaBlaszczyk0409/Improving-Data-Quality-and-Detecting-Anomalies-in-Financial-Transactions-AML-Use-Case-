@@ -40,23 +40,23 @@ Fraud by transaction type:
     * Fraud transactions with orig inconsistency: 0.007
     * Fraud transactions with dest inconsistency: 0.648
 
-4. Feature Engineering
+## 4. Feature Engineering
 
 Created error balances:
-
+```
 df["errorBalanceOrig"] = df["newBalanceOrig"] + df["amount"] - df["oldBalanceOrig"]
 df["errorBalanceDest"] = df["oldBalanceDest"] + df["amount"] - df["newBalanceDest"]
-
+```
 
 Added binary flags:
-
+```
 df_model["isTransfer"] = (df_model["type"] == "TRANSFER").astype(int)
 df_model["isZeroOrig"] = ((df_model["oldBalanceOrig"] == 0) & (df_model["amount"] > 0)).astype(int)
 df_model["isZeroDest"] = ((df_model["oldBalanceDest"] == 0) & (df_model["amount"] > 0)).astype(int)
-
+```
 
 Selected features for modeling:
-
+```
 features = [
     "amount",
     "oldBalanceOrig", "newBalanceOrig",
@@ -64,8 +64,8 @@ features = [
     "errorBalanceOrig", "errorBalanceDest",
     "isTransfer", "isZeroOrig", "isZeroDest"
 ]
-
-5. Correlation Analysis
+```
+## 5. Correlation Analysis
 
 Correlation with fraud:
 
